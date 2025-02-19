@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <%- include('../layout/headSection') %>
+
+  <body>
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    <div id="main-wrapper">
+      <%- include('../layout/header') %>
+      <%- include('../layout/sidebar') %>
+      <div class="page-wrapper">
+        <div class="page-breadcrumb">
+          <div class="row">
+            <div class="col-12">
+              <h4 class="page-title">Add Subcategory</h4>
+            </div>
+          </div>
+        </div>
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Add Subcategory</h4>
+                  <form class="form-horizontal" method="post" action="/api/subCategory">
+                    <!-- Category Dropdown -->
+                    <div class="form-group row">
+                      <label for="cat_name" class="col-sm-3 col-form-label">Category</label>
+                      <div class="col-sm-9">
+                        <select name="cat_name" class="form-control" id="cat_name" required>
+                          <option value="">-- Select Category --</option>
+                          <% Category.forEach(cat => { %>
+                            <option value="<%= cat._id %>"><%= cat.cat_name %></option>
+                          <% }) %>
+                        </select>
+                        <small class="form-text text-muted">Select a category for the subcategory.</small>
+                      </div>
+                    </div>
+
+                    <!-- Subcategory Name Input -->
+                    <div class="form-group row">
+                      <label for="sub_category" class="col-sm-3 col-form-label">Subcategory Name</label>
+                      <div class="col-sm-9">
+                        <input type="text" class="form-control" id="sub_category" placeholder="Enter subcategory name" name="sub_category" required>
+                        <small class="form-text text-muted">Enter a unique name for the subcategory.</small>
+                      </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="form-group row">
+                      <div class="col-sm-9 offset-sm-3">
+                        <button type="submit" class="btn btn-primary">
+                          <i class="fas fa-save"></i> Submit
+                        </button>
+                        <button type="reset" class="btn btn-secondary">
+                          <i class="fas fa-undo"></i> Reset
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer class="footer text-center">
+          All Rights Reserved by Matrix-admin. Designed and Developed by
+          <a href="https://wrappixel.com">WrapPixel</a>.
+        </footer>
+      </div>
+    </div>
+
+    <%- include('../layout/jsLink') %>
+  </body>
+</html>

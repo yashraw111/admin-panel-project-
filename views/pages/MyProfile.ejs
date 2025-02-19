@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <%- include('../layout/headSection') %>
+  <body>
+    <div class="preloader">
+      <div class="lds-ripple">
+        <div class="lds-pos"></div>
+        <div class="lds-pos"></div>
+      </div>
+    </div>
+    <div id="main-wrapper">
+<%- include('../layout/header') %>
+<%- include('../layout/sidebar') %>
+
+<% console.log(admin) %>
+
+      <div class="page-wrapper">
+        <div class="page-breadcrumb">
+        </div>
+        <div class="div d-flex w-100 justify-content-center">
+        <img src="profile/<%= admin.admin_profile %>" alt="" width="100" class="rounded-circle">
+      </div>
+        <form class="form-horizontal" method="post" enctype="multipart/form-data" action="/api/admin/UpdateProfile">
+          <div class="card-body">
+              <h4 class="card-title">Add Category</h4>
+              <div class="form-group ">
+                  <div class="col-sm-9 mt-3">
+                      <input type="text" class="form-control" id="fname" value="<%= admin.userName %>" placeholder="Enter Category Name " name="userName">
+                  </div>
+                  <div class="col-sm-9 mt-3">
+                      <input type="text" class="form-control border-dark" id="fname" value="<%= admin.email %>" placeholder="Enter Category Name " name="username" disabled>
+                  </div>
+                  <input type="hidden" value="<%= admin.email %>" name="email">
+                  <div class="col-sm-9 mt-3">
+                      <input type="file" class="form-control border-dark" id="fname" name="admin_profile" >
+                  </div>
+               
+              </div>
+             
+          </div>
+              <div class="card-body">
+                  <button class="btn btn-github">Submit</button>
+              </div>
+      </form>
+        <footer class="footer text-center">
+          All Rights Reserved by Matrix-admin. Designed and Developed by
+          <a href="https://wrappixel.com">WrapPixel</a>.
+        </footer>
+      </div>
+    </div>
+
+    <%- include('../layout/jsLink') %>
+  </body>
+</html>
+  
