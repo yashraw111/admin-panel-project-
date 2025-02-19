@@ -7,7 +7,7 @@ const storage = multer.diskStorage({
             cb(null, './uploads/product')
         }
         if(file.fieldname==="admin_profile"){
-            cb(null,'./upload/admin_profile')
+            cb(null,'./uploads/profile')
         }
     },
     filename: (req, file, cb) => {
